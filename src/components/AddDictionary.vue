@@ -2,7 +2,7 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">羅馬拼音</label>
         <input
           type="text"
           class="form-control"
@@ -14,7 +14,7 @@
       </div>
 
       <div class="form-group">
-        <label for="description">內容說明</label>
+        <label for="description">描述</label>
         <input
           class="form-control"
           id="description"
@@ -24,7 +24,7 @@
         />
       </div>
 
-      <button @click="saveTutorial" class="btn btn-success">Submit</button>
+      <button @click="saveTutorial" class="btn btn-success">儲存</button>
     </div>
 
     <div v-else>
@@ -35,16 +35,19 @@
 </template>
 
 <script>
+//import WordDataService from "../services/WordDataService";
 import TutorialDataService from "../services/TutorialDataService";
 
 export default {
   name: "add-tutorial",
   data() {
     return {
-      tutorial: {
-        title: "",
-        description: "",
-        published: false
+      word: {  
+        word_tayal: "",
+        word_zh_tw: "", 
+        season:"",
+        topic:"",
+        description: "", 
       },
       submitted: false
     };
@@ -66,7 +69,26 @@ export default {
           console.log(e);
         });
     },
-    
+/*
+    saveWord() {
+      var data = {
+        word_tayal: this.word.spell_tayal,
+        word_zh_tw: this.word.spell_zh_tw,
+        topic: this.word.topic,
+        season: this.word.season,
+        description: this.word.description,
+      };
+
+      WordDataService.create(data)
+        .then(() => {
+          console.log("新增成功!");
+          this.submitted = true;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+   */ 
     newTutorial() {
       this.submitted = false;
       this.tutorial = {

@@ -1,14 +1,14 @@
 import firebase from "../firebase";
 
-const db = firebase.ref("/tutorials"); 
+const db = firebase.ref("/words");
 
-class TutorialDataService {
+class WordDataService {
   getAll() {
     return db;
   }
 
-  create(tutorial) {
-    return db.push(tutorial);
+  create(word) {
+    return db.push(word);
   }
 
   update(key, value) {
@@ -24,6 +24,4 @@ class TutorialDataService {
   }
 }
 
-export default new TutorialDataService();
-
-
+export default new WordDataService();

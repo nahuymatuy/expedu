@@ -16,6 +16,25 @@ export default new Router({
       path: "/add",
       name: "add",
       component: () => import("./components/AddTutorial")
+    },
+    {
+      path: "/addWord",
+      alias: "/addWord",
+      name: "addWord",
+      component: () => import("./components/AddDictionary.vue")
+    },
+    {
+      path: "/addD2",
+      alias: "/addD2",
+      name: "addWord",
+      component: () => import("./components/AddD2.vue")
+    }, 
+    {
+      path: "/dictionary",
+      alias: "/dictionary",
+      name: "dictionary",
+      component: () => import("./components/Dictionary.vue")
     }
+     
   ]
 });
